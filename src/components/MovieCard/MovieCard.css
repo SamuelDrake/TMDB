@@ -1,0 +1,8 @@
+.show-box {
+    @apply w-64 bg-white h-auto mt-0 mr-5 mb-8 ml-0 relative shadow-2xl rounded-[7px];
+}
+
+.info {
+    @apply rounded-[7px] absolute bottom-0 left-0 w-[100%] h-auto justify-center;
+    background: linear-gradient(0deg,#020024 10%,transparent);
+}
