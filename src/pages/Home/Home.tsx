@@ -20,7 +20,7 @@ const Home = () => {
         loop: true,
         mode: "free-snap",
         slides: {
-            perView: 5,
+            perView: 7,
             spacing: 10,
         },
     });
@@ -43,11 +43,11 @@ const Home = () => {
     }, []);
 
     return (
-        <div className='mar-4 container mx-auto px-4 bg-slate-900'>
-            <h2 className="text-4xl font-bold text-center mb-8 text-rose-50">Recomendaciones</h2>
+        <div className='bg-slate-900 min-h-screen w-full mx-auto'>
+            <h2 className="text-4xl font-bold text-center mb-8 text-white">Recomendaciones</h2>
             <div ref={sliderRef} className="keen-slider">
                 {mockMovies.map((movie) => (
-                    <div key={movie.id} className="keen-slider__slide rounded-lg shadow-xl" style={{ minWidth: '300px' }}>
+                    <div key={movie.id} className="keen-slider__slide rounded-lg shadow-xl bg-slate-800" style={{ minWidth: '300px' }}>
                         <MovieCard
                             movieId={movie.id}
                             posterPath={movie.poster_path}

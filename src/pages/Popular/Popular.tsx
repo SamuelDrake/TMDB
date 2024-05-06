@@ -22,11 +22,11 @@ const Popular: React.FC = () => {
         getPopular();
     }, []);
 
-    if (loading) return <div>Loading...</div>;
-    if (errorMovies) return <div>Error: {errorMovies}</div>;
+    if (loading) return <div className="text-white text-xl p-4 bg-slate-900 min-h-screen flex justify-center items-center">Loading...</div>;
+    if (errorMovies) return <div className="text-white text-xl p-4 bg-slate-900 min-h-screen flex justify-center items-center">Error: {errorMovies}</div>;
 
     return (
-        <div className='flex flex-row flex-wrap justify-center items-start m-2 bg-slate-900'>
+        <div className="bg-slate-900 min-h-screen w-full flex flex-row flex-wrap justify-center items-start p-4">
             {movies.map((movie, index) => (
                 <MovieCard
                     key={movie.id}
