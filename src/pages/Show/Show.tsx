@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { IDetailsResponse, getDetailsMovies } from "../../services";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock, faCalendarAlt, faStar } from '@fortawesome/free-solid-svg-icons';
 import { IMAGE_SOURCE } from "../../constants/moviesMock";
 import imdbLogo from '../../Pelisplus.jpeg';
 
@@ -43,6 +45,12 @@ const Show = () => {
         window.open(searchUrl, '_blank');
     };
 
+    const getColorForRating = (rating: number): string => {
+        if (rating >= 8) return 'text-green-400';
+        if (rating >= 6) return 'text-yellow-400';
+        return 'text-red-400';
+    };
+
     return (
         <div className="bg-slate-900 min-h-screen text-white flex items-center justify-center p-10">
             <div className="shadow-2xl rounded-3xl overflow-hidden flex flex-col md:flex-row">
@@ -53,6 +61,9 @@ const Show = () => {
                         <p>{movie?.overview}</p>
                     </div>
                     <div className="flex items-center justify-between mt-4">
+                        <p><FontAwesomeIcon icon={faClock} /> {movie?.runtime} min</p>
+                        <p><FontAwesomeIcon icon={faCalendarAlt} /> {movie?.release_date}</p>
+                        <p className={`${getColorForRating(movie?.vote_average || 0)}`}><FontAwesomeIcon icon={faStar} /> {movie?.vote_average}</p>
                         <button onClick={handleIMDBClick} className="flex items-center">
                             <img src={imdbLogo} alt="IMDB Logo" className="w-24 h-24 cursor-pointer" />
                         </button>
